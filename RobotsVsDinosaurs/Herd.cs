@@ -16,16 +16,15 @@ namespace RobotsVsDinosaurs
         public Herd()
         {
             dinosaurs = new  List<Dinosaur>();
+
             Dinosaur sharpTooth = new Dinosaur("Tyrannosaurus", 20);
             Dinosaur spike = new Dinosaur("Ankylosaurus", 15);
             Dinosaur topps = new Dinosaur("Triceratops", 10);
-            PopulateHeard(sharpTooth);
-            PopulateHeard(sharpTooth);
-            PopulateHeard(sharpTooth);
 
-        }
-
-        
+            PopulateHeard(sharpTooth);
+            PopulateHeard(spike);
+            PopulateHeard(topps);
+        }      
 
         //Member Methods 
         public void PopulateHeard(Dinosaur dinosaur)
