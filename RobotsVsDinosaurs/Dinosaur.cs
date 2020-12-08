@@ -26,19 +26,9 @@ namespace RobotsVsDinosaurs
 
 
         //Member Methods 
-        public int AttacksRobot(List<Dinosaur> dinosaurs)
+        public int AttacksRobot(Robot robot)
         {
-            int attack = 0;
-            foreach(var dinosaur in dinosaurs)
-            {
-                attack += dinosaur.attackPower;
-            }
-                attackPower = attack;
-                return attackPower;
-        }
-        public int NewDinoHealthAfterAttacked(Robot robot)
-        {
-            health -= robot.weapon.attackPower++;
+            robot.health -= attackPower;
             return health;
         }
 

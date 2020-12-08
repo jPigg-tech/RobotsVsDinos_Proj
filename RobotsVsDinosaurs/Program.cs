@@ -10,7 +10,14 @@ namespace RobotsVsDinosaurs
     {
         static void Main(string[] args)
         {
-            
+            Fleet fleet = new Fleet();
+            Herd herd = new Herd();
+
+            Battlefield battlefield = new Battlefield();
+            battlefield.GetBattleResults(fleet, herd);
+
+            Console.ReadLine();
+
         }
     }
 }
