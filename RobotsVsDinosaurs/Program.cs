@@ -14,7 +14,8 @@ namespace RobotsVsDinosaurs
             Herd herd = new Herd();
 
             Battlefield battlefield = new Battlefield();
-            battlefield.GetBattleResults(fleet, herd);
+            battlefield.StartBattle(fleet, herd);
+            battlefield.GetBattleResults();
 
             Console.ReadLine();
 
