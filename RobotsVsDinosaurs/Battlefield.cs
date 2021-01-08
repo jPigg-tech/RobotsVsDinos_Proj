@@ -26,7 +26,7 @@ namespace RobotsVsDinosaurs
         }
 
         //Member Methods        
-        public void StartBattle(Fleet fleet, Herd herd)
+        public void StartBattle()
         {
             // while robotScore or dinosaur score is <= 3
             // if robot 0 and dinosaur 0 are still alive, they should fight again
@@ -35,26 +35,41 @@ namespace RobotsVsDinosaurs
 
             for (int i = 0; i < fleet.robots.Count; i++)
             {
-                while (fleet.robots[i].health > 0 && herd.dinosaurs[i].health > 0)
+                for (int j = 0; j < herd.dinosaurs.Count; j++)
                 {
-                    // battle logic
-                    herd.dinosaurs[i].AttacksRobot(fleet.robots[i]);
-                    fleet.robots[i].AttacksDinosaur(herd.dinosaurs[i]);
-                }
+                    while (fleet.robots[i].health > 0 && herd.dinosaurs[j].health > 0)
+                    {
+                        fleet.robots[i].AttacksDinosaur(herd.dinosaurs[j]);
 
-                if (herd.dinosaurs[i].health <= 0)
-                {
-                    Console.WriteLine("The robot wins this round");
-                    robotScore++;
-                }
-                else
-                {
-                    Console.WriteLine("The Dinosaur wins this round");
-                    dinosaurScore++;
-                }
+                        if (herd.dinosaurs[j].health <= 0)
+                        {
+                            Console.WriteLine("The robot wins this round!");
+                            herd.dinosaurs.Remove(herd.dinosaurs[j]);
+                            j++;
+                            robotScore++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("The Dinosaurs new health is " + herd.dinosaurs[j].health);
+                        }
+
+                        herd.dinosaurs[j].AttacksRobot(fleet.robots[i]);
+
+                        if (fleet.robots[i].health <= 0)
+                        {
+                            Console.WriteLine("The Dinosaur wins this round!");
+                            fleet.robots.Remove(fleet.robots[i]);
+                            i++;
+                            dinosaurScore++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("The Robots new health is " + fleet.robots[i].health);
+                        }
+                    }
+                }             
                 // end while loop, next iteration
             }
-
         }
         public void GetBattleResults()
         {

@@ -23,17 +23,17 @@ namespace RobotsVsDinosaurs
             Weapon cannon = new Weapon("cannon", 15);
             Weapon handGun = new Weapon("pistol", 10);
 
-            Robot ironGiant = new Robot("Bender", dinoSplitter);
-            Robot tank = new Robot("Bull Dod", cannon);
-            Robot roboCop = new Robot("Gordon Gecko", handGun);
-
-            PopulateFleet(ironGiant);
-            PopulateFleet(tank);
-            PopulateFleet(roboCop);
-
             PopulateWeaponInventory(dinoSplitter);
             PopulateWeaponInventory(cannon);
             PopulateWeaponInventory(handGun);
+
+            Robot ironGiant = new Robot("Bender", weapons[0]);
+            Robot tank = new Robot("Bull Dog", weapons[1]);
+            Robot roboCop = new Robot("Gordon Gecko", weapons[2]);
+
+            PopulateFleet(ironGiant);
+            PopulateFleet(tank);
+            PopulateFleet(roboCop);            
         }
 
         //Member Methods 
@@ -45,6 +45,5 @@ namespace RobotsVsDinosaurs
         {
             weapons.Add(weapon);
         }
-
     }
 }
