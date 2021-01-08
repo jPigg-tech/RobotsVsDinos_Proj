@@ -10,16 +10,21 @@ namespace RobotsVsDinosaurs
     {
         //Member Variables
         public List<Dinosaur> dinosaurs;
-
+        public DinoAttack[] dinoAttacks;
 
         //Constructor
         public Herd()
         {
             dinosaurs = new  List<Dinosaur>();
+            dinoAttacks = new DinoAttack[3];
 
-            Dinosaur sharpTooth = new Dinosaur("Tyrannosaurus", 20);
-            Dinosaur spike = new Dinosaur("Ankylosaurus", 15);
-            Dinosaur topps = new Dinosaur("Triceratops", 10);
+            dinoAttacks[0] = new DinoAttack("bite", 10);
+            dinoAttacks[1] = new DinoAttack("scratch", 15);
+            dinoAttacks[2] = new DinoAttack("fire blast", 20);
+          
+            Dinosaur sharpTooth = new Dinosaur("Tyrannosaurus", dinoAttacks[2]);
+            Dinosaur spike = new Dinosaur("Ankylosaurus", dinoAttacks[1]);
+            Dinosaur topps = new Dinosaur("Triceratops", dinoAttacks[0]);
 
             PopulateHeard(sharpTooth);
             PopulateHeard(spike);
