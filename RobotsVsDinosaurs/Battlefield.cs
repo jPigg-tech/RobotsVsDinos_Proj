@@ -25,7 +25,42 @@ namespace RobotsVsDinosaurs
             dinosaurScore = 0;
         }
 
-        //Member Methods        
+        //Member Methods  
+        public void RunBattle()
+        {
+            while (fleet.robots.Count > 0 && herd.dinosaurs.Count > 0)
+            {
+                fleet.robots[0].AttacksDinosaur(herd.dinosaurs[0]);
+                if (herd.dinosaurs[0].health <= 0)
+                {
+                    herd.dinosaurs.RemoveAt(0);
+                    if (herd.dinosaurs.Count == 0)
+                    {
+                        break;
+                    }
+                }
+                herd.dinosaurs[0].AttacksRobot(fleet.robots[0]);
+                if (fleet.robots[0].health <= 0)
+                {
+                    fleet.robots.RemoveAt(0);
+                }
+            }
+            GetBattleResults();
+        }
+        public void GetBattleResults()
+        {
+            if (fleet.robots.Count > 0)
+            {
+                Console.WriteLine("The Robots have won the battle!");
+            }
+            else
+            {
+                Console.WriteLine("The Dinosaurs have won the battle!");
+            }
+        }
+
+        
+
         public void StartBattle()
         {
             // while robotScore or dinosaur score is <= 3
@@ -67,19 +102,8 @@ namespace RobotsVsDinosaurs
                             Console.WriteLine("The Robots new health is " + fleet.robots[i].health);
                         }
                     }
-                }             
+                }
                 // end while loop, next iteration
-            }
-        }
-        public void GetBattleResults()
-        {
-            if (robotScore > dinosaurScore)
-            {
-                Console.WriteLine("The Robots have won the battle!");
-            }
-            else
-            {
-                Console.WriteLine("The Dinosaurs have won the battle!");
             }
         }
     }
