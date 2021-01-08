@@ -12,14 +12,14 @@ namespace RobotsVsDinosaurs
         public string type;
         public int health;
         public int energyPercentage;
-        public int attackPower;
+        public DinoAttack dinoAttack;
 
 
         //Constructor
-        public Dinosaur(string type, int attackPower)
+        public Dinosaur(string type, DinoAttack dinoAttack)
         {
             this.type = type;
-            this.attackPower = attackPower;
+            this.dinoAttack = dinoAttack;
             health = 100;
             energyPercentage = 100;
         }
@@ -28,7 +28,7 @@ namespace RobotsVsDinosaurs
         //Member Methods 
         public int AttacksRobot(Robot robot)
         {
-            robot.health -= attackPower;
+            robot.health -= dinoAttack.attackPower;
             return robot.health;
         }
 
