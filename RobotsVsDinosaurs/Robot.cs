@@ -29,6 +29,7 @@ namespace RobotsVsDinosaurs
         public int AttacksDinosaur(Dinosaur dinosaur)
         {
             dinosaur.health -= weapon.attackPower;
+            powerLevel -= 10;
             return dinosaur.health;
         }
      
