@@ -29,6 +29,7 @@ namespace RobotsVsDinosaurs
         public int AttacksRobot(Robot robot)
         {
             robot.health -= dinoAttack.attackPower;
+            energyPercentage -= 10;
             return robot.health;
         }
 
